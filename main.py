@@ -113,8 +113,13 @@ def clear():
 	converted_entry.delete(0, END)
 
 def converter(home_entry,conversion_entry):
+	try:
 	# Live currency update
-	c.convert(1, {home_entry}, {conversion_entry})
+		conversion_rate = c.convert(1, {home_entry}, {conversion_entry})
+	# 	conversion_rate = c.convert(1, 'USD', 'CAD')
+		print(conversion_rate)
+	except:
+		pass
 
 amount_label = LabelFrame(conversion_frame, text="Amount To Conver")
 amount_label.pack(pady=20)
