@@ -4,10 +4,13 @@ from tkinter import messagebox
 from currency_converter import CurrencyConverter
 
 
+
 root = Tk()
 root.title('Currency Conversion')
 root.iconbitmap('#')
 root.geometry("500x500")
+
+c = CurrencyConverter()
 
 # Create Tabs
 my_notebook = ttk.Notebook(root)
@@ -51,7 +54,7 @@ def unlock():
 	rate_entry.config(state="normal")
 	# Disable Tab
 	my_notebook.tab(1, state='disabled')
-home = LabelFrame(currency_frame, text="Your Home Currency")
+home = LabelFrame(currency_frame, text="Name of Initial Currency")
 home.pack(pady=20)
 
 # Home currency entry box
@@ -108,6 +111,10 @@ def convert():
 def clear():
 	amount_entry.delete(0, END)
 	converted_entry.delete(0, END)
+
+def converter(home_entry,conversion_entry):
+	# Live currency update
+	c.convert(1, {home_entry}, {conversion_entry})
 
 amount_label = LabelFrame(conversion_frame, text="Amount To Conver")
 amount_label.pack(pady=20)
