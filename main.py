@@ -63,8 +63,11 @@ def converter():
 		# conversion_rate = c.convert(1, 'USD', 'CAD')
 		# print(conversion_rate)
 		rate_entry.config(text=conversion_rate)
+		# print(conversion_rate)
+		# return conversion_rate
+
 	except:
-		Print("Entry not working")
+		print("Entry not working")
 		pass
 
 home = LabelFrame(currency_frame, text="Symbol of Initial Currency")
@@ -109,12 +112,12 @@ unlock_button.grid(row=0, column=2, padx=10)
 #######################
 # CONVERSION STUFF
 #######################
+
 def convert():
-	global conversion_rate
 	# Clear Converted Entry Box
 	converted_entry.delete(0, END)
 	# Convert
-	conversion = float(conversion_rate) * float(amount_entry.get())
+	conversion = float(rate_entry["text"]) * float(amount_entry.get())
 	# Convert to two decimals
 	conversion = round(conversion,2)
 	# Add commas
