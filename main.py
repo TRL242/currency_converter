@@ -35,7 +35,7 @@ my_notebook.tab(1, state='disabled')
 #######################
 def lock():
 	if not home_entry.get() or not conversion_entry.get():
-		messagebox.showwarning("WARNING!", "You Didn't Fill Out All The Fields")
+		messagebox.showwarning("WARNING!", "You Didn't Fill Out All The Fields.")
 	else:
 		# Disable entry boxes
 		home_entry.config(state="disabled")
